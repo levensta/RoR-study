@@ -1,0 +1,17 @@
+Rails.application.routes.draw do
+  get "/" => "pages#convention"
+  get "convention" => "pages#convention"
+  get "console" => "pages#console"
+  get "ruby" => "pages#ruby"
+  get "ruby_concepts" => "pages#ruby_concepts"
+  get "ruby_numbers" => "pages#ruby_numbers"
+  get "ruby_strings" => "pages#ruby_strings"
+  get "ruby_arrays" => "pages#ruby_arrays"
+  get "ruby_hashes" => "pages#ruby_hashes"
+  get "rails" => "pages#rails"
+  get "rails_folder_structure" => "pages#rails_folder_structure"
+  get "rails_commands" => "pages#rails_commands"
+  get "rails_erb" => "pages#rails_erb"
+  get "editor" => "pages#editor"
+  get "help" => "pages#help"
+end

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <div class="container">
+    <nav>
+      <div class="navbar navbar-fixed-top navbar-default"><div class="navbar-header"><a href="./" class="navbar-brand cheat-sheet-brand">Rails Beginner Cheat Sheet</a></div>
+
+        <ul class="nav navbar-nav">
+          <li><a href="./console">Console</a></li>
+          <li class="dropdown">
+            <a href="./ruby" class="dropdown-toggle"><b class="caret"></b> Ruby</a>
+            <ul class="dropdown-menu" wfd-invisible="true">
+              <li><a href="./ruby_concepts">General Concepts</a></li>
+              <li><a href="./ruby_numbers">Numbers</a></li>
+              <li><a href="./ruby_strings">Strings</a></li>
+              <li><a href="./ruby_arrays">Arrays</a></li>
+              <li><a href="./ruby_hashes">Hashes</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="./rails"><b class="caret"></b> Rails</a>
+            <ul class="dropdown-menu" wfd-invisible="true">
+              <li><a href="./rails_folder_structure">Folder Structure</a></li>
+              <li><a href="./rails_commands">Commands</a></li>
+              <li><a href="./rails_erb">ERB: Embedded Ruby</a></li>
+            </ul>
+          </li>
+          <li><a href="./editor">Editor Tips</a></li>
+          <li><a href="./help">Help</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+    <div id="content-wrapper">
+      <div class="container ">
+        <section id="main-content"><fontsninja-text id="fontsninja-text-43">
+          <%= yield %>
+          </section>
+      </div>
+    </div>
+  </body>
+</html>
