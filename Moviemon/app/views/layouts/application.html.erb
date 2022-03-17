@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moviemon</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="info-keyboard">
+  <h3>Keys</h3>
+  <ul>
+    <li><kbd>p</kbd> Power</li>
+    <li><kbd>wasd</kbd> Directions</li>
+    <li><kbd>k</kbd> Select</li>
+    <li><kbd>l</kbd> Start</li>
+    <li><kbd>,</kbd> B</li>
+    <li><kbd>.</kbd> A</li>
+  </ul>
+</div>
+
+<div class="container">
+  <div id="gameboy" class="gameboy">
+    <div class="bezel">
+      <div class="btn_power">
+        <%= image_tag "button_power.png", :class => "btn_img", :usemap => "#powermap" %>
+        <map name="powermap">
+          <area id="btnPower" alt="btn_power" title="btn_power" href="<%= yield(:btn_link_power) %>" coords="10,10,10" shape="circle">
+        </map>
+      </div>
+
+      <div class="screen">
+        <main class="<%= yield(:section) %> main">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <%= image_tag "button_all.png", :class => "btn_img", :usemap => "#btnmap" %>
+      <map name="btnmap">
+          <area id="btnU" alt="btn_up" title="btn_up" href="<%= yield(:btn_link_up) %>" coords="49,31,97,66" shape="rect">
+          <area id="btnR" alt="btn_right" title="btn_right" href="<%= yield(:btn_link_right) %>" coords="97,66,131,113" shape="rect">
+          <area id="btnL" alt="btn_left" title="btn_left" href="<%= yield(:btn_link_left) %>" coords="13,66,48,113" shape="rect">
+          <area id="btnD" alt="btn_down" title="btn_down" href="<%= yield(:btn_link_down) %>" coords="50,114,96,150" shape="rect">
+          <area id="btnSelect" alt="btn_select" title="btn_select" href="<%= yield(:btn_link_select) %>" coords="115,179,192,202" shape="rect">
+          <area id="btnStart" alt="btn_start" title="btn_start" href="<%= yield(:btn_link_start) %>" coords="209,179,284,202" shape="rect">
+          <area id="btnA" alt="btn_a" title="btn_a" href="<%= yield(:btn_link_a) %>" coords="351,67,23" shape="circle">
+          <area id="btnB" alt="btn_b" title="btn_b" href="<%= yield(:btn_link_b) %>" coords="290,103,23" shape="circle">
+      </map>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+

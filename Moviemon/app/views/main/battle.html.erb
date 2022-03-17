@@ -1,0 +1,36 @@
+<%# @gshim %>
+<% content_for :section, "battle" %>
+<% content_for :btn_link_power, "#" %>
+<% content_for :btn_link_up, "#" %>
+<% content_for :btn_link_down, "#" %>
+<% content_for :btn_link_left, "#" %>
+<% content_for :btn_link_right, "#" %>
+<% content_for :btn_link_a, "battle?input=a" %>
+<% content_for :btn_link_b, "battle?input=b" %>
+<% content_for :btn_link_select, "#" %>
+<% content_for :btn_link_start, "#" %>
+
+<div class="battle-wrapper">
+	<div class="poster img-filter">
+		<img src=<%=$selected[:Poster] %> alt=<%=$selected[:Title] %> />
+	</div>
+	<div class="moviemon-wrapper">
+		<p class="director"><%=$selected[:Director] %></p>
+		<p class="title"><%= $selected[:Title] %></p>
+		<div class="bar-box bar-box-moviemon">
+			<div class="bar bar-moviemon" style="width: <%= ($selected[:hp].to_f * 100 / $selected[:imdbRating].to_f).round(1) %>%;"></div>
+		</div>
+		<p class="moviemon"><%= $selected[:hp].round(1) %> / <%= $selected[:imdbRating] %></p>
+	</div>
+	<div class="bar-box bar-box-you">
+		<div class="bar bar-you" style="width: <%= ($player[:hp].to_f * 100 / 42 ).round(1) %>%;"></div>
+	</div>
+	<p class="you">YOU: 
+	<%= $player[:hp].round(1) %> / 42</p>
+	<p><%= @caption %></p>
+</div>
+
+<div class="input_guide box">
+	<p>[A]FIGHT</p>
+	<p>[B]RUN</p>
+</div>

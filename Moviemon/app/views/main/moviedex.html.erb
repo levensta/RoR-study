@@ -1,0 +1,35 @@
+<% content_for :section, "moviedex"%>
+<% content_for :btn_link_up, "#" %>
+<% content_for :btn_link_down, "#" %>
+<% content_for :btn_link_left, "moviedex?input=l"%>
+<% content_for :btn_link_right, "moviedex?input=r"%>
+<% content_for :btn_link_a, "#" %>
+<% content_for :btn_link_b, "#" %>
+<% content_for :btn_link_select, "#" %>
+<% content_for :btn_link_start, "moviedex?input=s"%>
+
+<% if $game[:moviedex].length == 0 %>
+	<p class="no_monster">No moviemon to display...</p>
+	<p class="no_monster">Go and catch Moviemons!</p>
+<% else %>
+	<h4><%= $game[:moviedex][$game[:mov_idx]][:Title] %></h4>
+	<div class="details">
+	<div class="poster img-filter">
+		<%= image_tag($game[:moviedex][$game[:mov_idx]][:Poster], class: "poster_image") %>
+    </div>
+		<div class="info">
+			<p class="director"><b>Director:</b></b><br><%= $game[:moviedex][$game[:mov_idx]][:Director] %></p>
+			<p class="year"><b>Year:</b><br><%= $game[:moviedex][$game[:mov_idx]][:Year] %></p>
+			<p class="rating"><b>Rating:</b><br><%= $game[:moviedex][$game[:mov_idx]][:imdbRating] %></p>
+			<p class="genre"><b>Genre:</b><br><%= $game[:moviedex][$game[:mov_idx]][:Genre] %></p>
+		</div>
+	</div>
+	<p class="plot"><%= $game[:moviedex][$game[:mov_idx]][:Plot] %></p>
+<% end %>
+
+<div class="input_guide box">
+	<p>[←]Prev</p>
+	<p>[→]Next</p><br />
+	<p>[Start]map</p>
+</div>
+

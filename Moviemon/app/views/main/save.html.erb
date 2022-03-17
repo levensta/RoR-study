@@ -1,0 +1,45 @@
+<% content_for :section, "save" %>
+<% content_for :btn_link_power, "power" %>
+<% content_for :btn_link_up, "save?input=u" %>
+<% content_for :btn_link_down, "save?input=d" %>
+<% content_for :btn_link_left, "#" %>
+<% content_for :btn_link_right, "#" %>
+<% content_for :btn_link_a, "save?input=a" %>
+<% content_for :btn_link_b, "save?input=b" %>
+<% content_for :btn_link_select, $view[:prev_page].to_s ## title or worldmap %> 
+<% content_for :btn_link_start, "worldmap" %>
+
+<div class="save_slots">
+	<% if File.exist?("#{Rails.root}/app/assets/etc/etc_a.json") %>
+		<div class="save_slot<%= $view[:save_slot] == 0 ? " selected" : "" %>">
+			<p><%= File.mtime("#{Rails.root}/app/assets/etc/etc_a.json").to_s.chomp(" +0900") %></p>
+		</div>
+	<% else %>
+		<div class="save_slot<%= $view[:save_slot] == 0 ? " selected" : "" %>">
+			<p>A</p>
+		</div>
+	<% end %>
+	<% if File.exist?("#{Rails.root}/app/assets/etc/etc_b.json") %>
+		<div class="save_slot<%= $view[:save_slot] == 1 ? " selected" : "" %>">
+			<p><%= File.mtime("#{Rails.root}/app/assets/etc/etc_b.json").to_s.chomp(" +0900") %></p>
+		</div>
+	<% else %>
+		<div class="save_slot<%= $view[:save_slot] == 1 ? " selected" : "" %>">
+			<p>B</p>
+		</div>
+	<% end %>
+	<% if File.exist?("#{Rails.root}/app/assets/etc/etc_c.json") %>
+		<div class="save_slot<%= $view[:save_slot] == 2 ? " selected" : "" %>">
+			<p><%= File.mtime("#{Rails.root}/app/assets/etc/etc_c.json").to_s.chomp(" +0900") %></p>
+		</div>
+	<% else %>
+		<div class="save_slot<%= $view[:save_slot] == 2 ? " selected" : "" %>">
+			<p>C</p>
+		</div>
+	<% end %>
+</div>
+
+<div class="input_guide">
+	<p>[A] Save/Overwrite</p>
+	<p>[B] Load </p>
+</div>

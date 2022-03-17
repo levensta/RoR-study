@@ -1,0 +1,28 @@
+<% content_for :section, "worldmap" %>
+<% content_for :btn_link_power, "#" %>
+<% content_for :btn_link_up, "worldmap?input=u" %>
+<% content_for :btn_link_down, "worldmap?input=d" %>
+<% content_for :btn_link_left, "worldmap?input=l" %>
+<% content_for :btn_link_right, "worldmap?input=r" %>
+<% content_for :btn_link_a, "#" %>
+<% content_for :btn_link_b, "#" %>
+<% content_for :btn_link_select, "save" %>
+<% content_for :btn_link_start, "moviedex" %>
+
+<div class="map">
+	<div class="character"></div>
+	<div class="stats">
+		<% if $player[:movieballs] > 0 %>
+		<ul>
+			<% $player[:movieballs].times { %>
+				<li>🎾</li>
+			<% } %>
+		</ul>
+		<% end %>
+	</div>
+	<div class="new_ball<%= $view[:new_ball] == 1 ? " show" : "" %>">
+		<p>You've got<br />the Movieball!</p>
+		<p>🎾</p>
+	</div>
+	<div class="background" style="background-position: <%= ($game[:pos][:x] + 1) * -30 %>px <%= ($game[:pos][:y] + 1) * -30 %>px"></div>
+</div>

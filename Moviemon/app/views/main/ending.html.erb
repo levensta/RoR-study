@@ -1,0 +1,42 @@
+<% content_for :section, "ending" %>
+<% content_for :btn_link_power, "/" %>
+<% content_for :btn_link_up, "#" %>
+<% content_for :btn_link_down, "#" %>
+<% content_for :btn_link_left, "#" %>
+<% content_for :btn_link_right, "#" %>
+<% content_for :btn_link_a, "#" %>
+<% content_for :btn_link_b, "#" %>
+<% content_for :btn_link_select, "#" %>
+<% content_for :btn_link_start, "moviedex" %>
+
+<% mons = $game[:moviedex].length %>
+<p class="count">
+	You caught <%= mons %> 
+	<% if mons == 1%>
+		Moviemon.
+	<% else %>
+		Moviemons.
+	<% end %>
+</p>
+<div class="result">
+	<% if mons > 9 %>
+		<div class="image-box img-filter">
+			<%= image_tag "trophies.png" %>
+		</div>
+		<p>Excellent!</p>
+	<% elsif mons > 5 %>
+		<div class="image-box img-filter">
+			<%= image_tag "try-harder-you-must.png" %>
+		</div>
+	<% else %>
+		<div class="image-box img-filter">
+			<%= image_tag "hum.gif" %>
+		</div>
+		<p>hum..</p>
+	<% end %>
+</div>
+
+<div class="input_guide box">
+	<p>[POWER]Title</p>
+	<p>[A]Moviedex</p>
+</div>
